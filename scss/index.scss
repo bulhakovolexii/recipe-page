@@ -28,7 +28,7 @@
 
 .bg {
   background-color: $stone-100;
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
@@ -37,6 +37,7 @@
 }
 
 body {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
