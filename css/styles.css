@@ -316,7 +316,7 @@ hr {
   border-bottom: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   .container {
     padding: 0;
   }
