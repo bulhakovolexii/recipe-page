@@ -1,0 +1,287 @@
+@use "design-system" as *;
+
+@mixin list() {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-100;
+  @include text-preset-4();
+  list-style: none;
+  padding: 0;
+}
+
+@mixin bullets() {
+  content: "";
+  display: block;
+  position: absolute;
+  left: $spacing-100;
+  top: calc(50% - 4px / 2); // middle of line
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: $rose-800;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg {
+  background-color: $stone-100;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex-grow: 1;
+  padding: 0 76px;
+}
+
+// heading
+.recipe {
+  margin: $spacing-1600 auto;
+  padding: $spacing-500;
+  max-width: 736px;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-400;
+  background-color: $white;
+  border-radius: $spacing-300;
+}
+
+.recipe__image {
+  margin: 0;
+  padding-bottom: $spacing-500;
+
+  img {
+    display: block;
+    border-radius: $spacing-150;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+}
+
+.recipe__title {
+  @include text-preset-1();
+  margin: 0;
+  padding-bottom: $spacing-300;
+}
+
+.recipe__description {
+  @include text-preset-4();
+  margin: 0;
+}
+
+// time section
+.recipe__time {
+  background-color: $rose-50;
+  padding: $spacing-300;
+  border-radius: $spacing-150;
+}
+
+.time__heading {
+  @include text-preset-3();
+  margin: 0;
+  color: $rose-800;
+  margin-bottom: $spacing-200;
+}
+
+.time__list {
+  @include list();
+
+  li {
+    padding-left: $spacing-500;
+    position: relative;
+
+    &::before {
+      @include bullets();
+    }
+
+    b {
+      @include text-preset-4-bold();
+      color: $stone-600;
+    }
+  }
+}
+
+// ingredients section
+.ingredients {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-300;
+
+  h2 {
+    @include text-preset-2();
+    color: $brown-800;
+    margin: 0;
+  }
+}
+
+.ingredients__list {
+  @include list();
+
+  li {
+    padding-left: $spacing-500;
+    position: relative;
+
+    &::before {
+      @include bullets();
+    }
+  }
+}
+
+// divider
+hr {
+  width: 100%;
+  margin: 0;
+  border: none;
+  margin-top: -1px;
+  border-top: 1px solid $stone-150;
+}
+
+// instructions section
+.instructions {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-300;
+
+  h2 {
+    @include text-preset-2();
+    color: $brown-800;
+    margin: 0;
+  }
+}
+
+.instructions__list {
+  @include list();
+  counter-reset: item;
+
+  li {
+    padding-left: $spacing-500;
+    position: relative;
+
+    ::before {
+      position: absolute;
+      left: $spacing-100;
+      color: $rose-800;
+      counter-increment: item;
+      content: counter(item) ".";
+    }
+  }
+
+  b {
+    @include text-preset-4-bold();
+    color: $stone-600;
+  }
+}
+
+// nutrition section
+.nutrition {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-300;
+
+  h2 {
+    @include text-preset-2();
+    color: $brown-800;
+    margin: 0;
+  }
+
+  p {
+    @include text-preset-4();
+    color: $stone-600;
+    margin: 0;
+  }
+
+  table {
+    @include text-preset-4();
+    border-collapse: collapse;
+
+    td {
+      width: 50%;
+      padding: $spacing-150 0 calc($spacing-150 - 1px) $spacing-100;
+      //calc to exclude border thinness
+      border-bottom: 1px solid $stone-150;
+
+      &:first-child {
+        padding-left: $spacing-400;
+      }
+
+      &:last-child {
+        @include text-preset-4-bold();
+        color: $brown-800;
+      }
+    }
+
+    tr:first-child > td {
+      padding-top: 0;
+    }
+
+    tr:last-child > td {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0;
+  }
+
+  .recipe {
+    max-width: 100%;
+    margin: 0;
+    padding: $spacing-400;
+    border-radius: 0;
+  }
+
+  .recipe__image {
+    margin: -$spacing-400;
+    margin-bottom: 0;
+
+    img {
+      height: 171px;
+      border-radius: 0;
+    }
+  }
+
+  .recipe__title {
+    font-size: 36px;
+  }
+}
+
+// started files default styles
+.attribution {
+  @include text-preset-4();
+  font-size: 11px;
+  text-align: center;
+  width: 100%;
+  padding: $spacing-100 0;
+}
+
+.attribution a {
+  color: $rose-800;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $rose-800;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}

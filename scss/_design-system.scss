@@ -1,0 +1,103 @@
+/* COLORS */
+// Rose
+$rose-800: #7a284e;
+$rose-50: #fff7fb;
+
+// Stone
+$stone-900: #312e2c;
+$stone-600: #5f564d;
+$stone-150: #e3ddd7;
+$stone-100: #f3e5d7;
+
+// Brown
+$brown-800: #854632;
+
+// White
+$white: #ffffff;
+
+/* TYPOGRAPHY */
+// fonts
+@font-face {
+  font-family: "Young Serif Regular";
+  src: url(../assets/fonts/young-serif/YoungSerif-Regular.ttf)
+    format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit Regular";
+  src: url(../assets/fonts/outfit/static/Outfit-Regular.ttf) format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit SemiBold";
+  src: url(../assets/fonts/outfit/static/Outfit-SemiBold.ttf) format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit Bold";
+  src: url(../assets/fonts/outfit/static/Outfit-Bold.ttf) format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
+// text presets
+@mixin text-preset-1 {
+  font-family: "Young Serif Regular";
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  font-weight: 400;
+  color: $stone-900;
+}
+
+@mixin text-preset-2 {
+  font-family: "Young Serif Regular";
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  font-weight: 400;
+  color: $stone-900;
+}
+
+@mixin text-preset-3 {
+  font-family: "Outfit SemiBold";
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  font-weight: 600;
+  color: $stone-900;
+}
+
+@mixin text-preset-4 {
+  font-family: "Outfit Regular";
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  font-weight: 400;
+  color: $stone-600;
+}
+
+@mixin text-preset-4-bold {
+  font-family: "Outfit Bold";
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  font-weight: 700;
+  color: $stone-900;
+}
+
+/* SPACINGS */
+$spacing-1600: 128px;
+$spacing-600: 48px;
+$spacing-500: 40px;
+$spacing-400: 32px;
+$spacing-300: 24px;
+$spacing-200: 16px;
+$spacing-150: 12px;
+$spacing-100: 8px;
